@@ -1,0 +1,158 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #34495e; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .frontend { fill: #3498db; stroke: #2980b9; stroke-width: 2; }
+      .backend { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; }
+      .cloud { fill: #f39c12; stroke: #e67e22; stroke-width: 2; }
+      .database { fill: #9b59b6; stroke: #8e44ad; stroke-width: 2; }
+      .api { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; }
+      .arrow { stroke: #34495e; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .data-flow { stroke: #e67e22; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e" />
+    </marker>
+  </defs>
+  
+  <!-- 标题 -->
+  <text x="600" y="30" text-anchor="middle" class="title">TODO系统架构图</text>
+  <text x="600" y="55" text-anchor="middle" class="small-text">全栈架构 - 前端React + 后端Node.js + Sealos云函数</text>
+  
+  <!-- 前端层 -->
+  <rect x="50" y="100" width="300" height="200" rx="10" class="frontend" opacity="0.1"/>
+  <text x="200" y="125" text-anchor="middle" class="subtitle">前端层 (React + TypeScript)</text>
+  
+  <!-- React组件 -->
+  <rect x="70" y="140" width="80" height="40" rx="5" class="frontend"/>
+  <text x="110" y="165" text-anchor="middle" class="text">App.tsx</text>
+  
+  <rect x="160" y="140" width="80" height="40" rx="5" class="frontend"/>
+  <text x="200" y="165" text-anchor="middle" class="text">TodoList</text>
+  
+  <rect x="250" y="140" width="80" height="40" rx="5" class="frontend"/>
+  <text x="290" y="165" text-anchor="middle" class="text">AddTodo</text>
+  
+  <!-- 状态管理 -->
+  <rect x="70" y="190" width="120" height="40" rx="5" class="frontend"/>
+  <text x="130" y="215" text-anchor="middle" class="text">Context + Hooks</text>
+  
+  <!-- API服务 -->
+  <rect x="200" y="190" width="120" height="40" rx="5" class="api"/>
+  <text x="260" y="215" text-anchor="middle" class="text">API Service</text>
+  
+  <!-- 后端层 -->
+  <rect x="450" y="100" width="300" height="200" rx="10" class="backend" opacity="0.1"/>
+  <text x="600" y="125" text-anchor="middle" class="subtitle">后端层 (Node.js + Express)</text>
+  
+  <!-- 控制器 -->
+  <rect x="470" y="140" width="100" height="40" rx="5" class="backend"/>
+  <text x="520" y="165" text-anchor="middle" class="text">TodoController</text>
+  
+  <!-- 路由 -->
+  <rect x="580" y="140" width="80" height="40" rx="5" class="backend"/>
+  <text x="620" y="165" text-anchor="middle" class="text">Routes</text>
+  
+  <!-- 中间件 -->
+  <rect x="670" y="140" width="70" height="40" rx="5" class="backend"/>
+  <text x="705" y="165" text-anchor="middle" class="text">CORS</text>
+  
+  <!-- 存储层 -->
+  <rect x="470" y="190" width="100" height="40" rx="5" class="database"/>
+  <text x="520" y="215" text-anchor="middle" class="text">TodoStorage</text>
+  
+  <!-- 模型 -->
+  <rect x="580" y="190" width="80" height="40" rx="5" class="database"/>
+  <text x="620" y="215" text-anchor="middle" class="text">Models</text>
+  
+  <!-- 云函数层 -->
+  <rect x="850" y="100" width="300" height="200" rx="10" class="cloud" opacity="0.1"/>
+  <text x="1000" y="125" text-anchor="middle" class="subtitle">Sealos云函数层</text>
+  
+  <!-- Sealos函数 -->
+  <rect x="870" y="140" width="120" height="40" rx="5" class="cloud"/>
+  <text x="930" y="165" text-anchor="middle" class="text">sealos-simple</text>
+  
+  <rect x="1000" y="140" width="120" height="40" rx="5" class="cloud"/>
+  <text x="1060" y="165" text-anchor="middle" class="text">sealos-laf</text>
+  
+  <!-- 云数据库 -->
+  <rect x="870" y="190" width="120" height="40" rx="5" class="database"/>
+  <text x="930" y="215" text-anchor="middle" class="text">云数据库</text>
+  
+  <rect x="1000" y="190" width="120" height="40" rx="5" class="database"/>
+  <text x="1060" y="215" text-anchor="middle" class="text">内存存储</text>
+  
+  <!-- 数据流箭头 -->
+  <!-- 前端到后端 -->
+  <line x1="320" y1="210" x2="450" y2="210" class="arrow"/>
+  <text x="385" y="205" text-anchor="middle" class="small-text">HTTP API</text>
+  
+  <!-- 前端到云函数 -->
+  <path d="M 320 160 Q 600 80 850 160" class="data-flow"/>
+  <text x="585" y="95" text-anchor="middle" class="small-text">云函数调用</text>
+  
+  <!-- API端点详情 -->
+  <rect x="50" y="350" width="500" height="180" rx="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="300" y="375" text-anchor="middle" class="subtitle">API端点设计</text>
+  
+  <text x="70" y="400" class="text">GET /api/todos - 获取所有待办事项</text>
+  <text x="70" y="420" class="text">GET /api/todos/:id - 获取单个待办事项</text>
+  <text x="70" y="440" class="text">POST /api/todos - 创建新待办事项</text>
+  <text x="70" y="460" class="text">PUT /api/todos/:id - 更新待办事项</text>
+  <text x="70" y="480" class="text">DELETE /api/todos/:id - 删除待办事项</text>
+  
+  <text x="70" y="510" class="small-text">• 统一错误处理和响应格式</text>
+  <text x="70" y="525" class="small-text">• CORS跨域支持</text>
+  
+  <!-- 部署架构 -->
+  <rect x="600" y="350" width="550" height="180" rx="10" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="875" y="375" text-anchor="middle" class="subtitle">部署架构</text>
+  
+  <!-- 本地开发 -->
+  <rect x="620" y="390" width="120" height="60" rx="5" class="frontend"/>
+  <text x="680" y="415" text-anchor="middle" class="text">本地开发</text>
+  <text x="680" y="430" text-anchor="middle" class="small-text">localhost:3000</text>
+  <text x="680" y="445" text-anchor="middle" class="small-text">React Dev Server</text>
+  
+  <rect x="750" y="390" width="120" height="60" rx="5" class="backend"/>
+  <text x="810" y="415" text-anchor="middle" class="text">本地后端</text>
+  <text x="810" y="430" text-anchor="middle" class="small-text">localhost:3001</text>
+  <text x="810" y="445" text-anchor="middle" class="small-text">Express Server</text>
+  
+  <!-- 云端部署 -->
+  <rect x="880" y="390" width="120" height="60" rx="5" class="cloud"/>
+  <text x="940" y="415" text-anchor="middle" class="text">Sealos云端</text>
+  <text x="940" y="430" text-anchor="middle" class="small-text">云函数</text>
+  <text x="940" y="445" text-anchor="middle" class="small-text">自动扩缩容</text>
+  
+  <rect x="1010" y="390" width="120" height="60" rx="5" class="database"/>
+  <text x="1070" y="415" text-anchor="middle" class="text">数据持久化</text>
+  <text x="1070" y="430" text-anchor="middle" class="small-text">云数据库</text>
+  <text x="1070" y="445" text-anchor="middle" class="small-text">MongoDB</text>
+  
+  <!-- 联调流程 -->
+  <text x="70" y="570" class="subtitle">联调流程</text>
+  <text x="70" y="595" class="text">1. 前端发起HTTP请求 → API Service → axios封装</text>
+  <text x="70" y="615" class="text">2. 后端接收请求 → 路由分发 → 控制器处理 → 数据存储</text>
+  <text x="70" y="635" class="text">3. 云函数调用 → 统一接口封装 → 环境自动切换</text>
+  <text x="70" y="655" class="text">4. 错误处理 → 统一错误格式 → 前端友好提示</text>
+  
+  <!-- 技术栈 -->
+  <text x="650" y="570" class="subtitle">技术栈</text>
+  <text x="650" y="595" class="text">前端: React 18 + TypeScript + Context API + CSS3</text>
+  <text x="650" y="615" class="text">后端: Node.js + Express + TypeScript + UUID</text>
+  <text x="650" y="635" class="text">云函数: Sealos + JavaScript + 云数据库</text>
+  <text x="650" y="655" class="text">工具: npm + 热重载 + CORS + 环境变量</text>
+  
+  <!-- 数据流向 -->
+  <line x1="740" y1="420" x2="750" y2="420" class="arrow"/>
+  <line x1="870" y1="420" x2="880" y2="420" class="arrow"/>
+  <line x1="1000" y1="420" x2="1010" y2="420" class="arrow"/>
+  
+  <!-- 版本信息 -->
+  <text x="1150" y="790" class="small-text">v1.0 - 全栈TODO系统</text>
+</svg>
